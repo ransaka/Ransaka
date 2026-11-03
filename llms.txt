@@ -1,0 +1,17 @@
+﻿#   | Ransaka's Blog
+
+> Welcome to my blog, where I share my experiences, thoughts, and research work. The content of this blog should not be taken to reflect the views of any organization I'm affiliated with.
+
+- [Welcome to My Blog](https://ransaka.github.io/welcome.md): Welcome to My Blog
+- [Projects](https://ransaka.github.io/projects.md): Retrieval augmented generation framework based on news contents.
+- [Reach out to me](https://ransaka.github.io/contact.md): You can contact me via ransakaravi@gmail.com or LinkedIn.
+
+## Ransaka's Blog
+
+- [Building CRNN model for Sinhala OCR Tasks](https://ransaka.github.io/ransakas-blog/building-crnn-model-for-sinhala-ocr.md): Welcome
+- [Gaussian Mixture Model Clearly Explained](https://ransaka.github.io/ransakas-blog/gmm-from-scratch.md): When we talk about Gaussian Mixture Model (later, this will be denoted as GMM in this article), it's essential to know how the KMeans algorithm works. Because GMM is quite similar to the KMeans, more likely it's a probabilistic version of KMeans.
+- [Machine Learning on Snowflake](https://ransaka.github.io/ransakas-blog/machine-learning-on-snowflake.md): Snowflake is one of the leading data platforms out there. In this article, we will explore the capabilities of its' snowpark python library.
+- [Tokenization 101](https://ransaka.github.io/ransakas-blog/introduction_to_nlp_tokenizers.md): Tokenization stands as a foundational principle in natural language processing (NLP), encompassing the division of a text into smaller entities referred to as tokens.
+- [Use SMOTE with Caution](https://ransaka.github.io/ransakas-blog/smote-with-caution.md): If you are a machine learning practitioner, you may face class imbalance problems more often. Class imbalance happens when there is a different class distribution in the dataset.
+- [Using Llama 3 for Building AI Agents](https://ransaka.github.io/ransakas-blog/building-ai-agent-with-llama-3.md): How to use llama 3 for building AI Agents
+- [Visualizing CNN Features with Activation Maximization](https://ransaka.github.io/ransakas-blog/visualizing-cnn-features-with-activation-maximization.md): Activation Maps

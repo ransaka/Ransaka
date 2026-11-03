@@ -6,10 +6,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799578063788">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.847022811092">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.7.0">
+    <meta name="generator" content="Retype 4.6.0">
 
     <!-- Primary Meta Tags -->
     <title>Using Llama 3 for Building AI Agents  | Ransaka&#39;s Blog</title>
@@ -18,194 +19,160 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://ransaka.github.io/ransakas-blog/building-ai-agent-with-llama-3/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://ransaka.github.io/sitemap.xml">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ransaka.github.io/ransakas-blog/building-ai-agent-with-llama-3/">
     <meta property="og:title" content="Using Llama 3 for Building AI Agents  | Ransaka's Blog">
     <meta property="og:description" content="How to use llama 3 for building AI Agents">
+    <meta property="og:site_name" content="Ransaka&#x27;s Blog">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ransaka.github.io/ransakas-blog/building-ai-agent-with-llama-3/">
-    <meta property="twitter:title" content="Using Llama 3 for Building AI Agents  | Ransaka's Blog">
-    <meta property="twitter:description" content="How to use llama 3 for building AI Agents">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ransaka.github.io/ransakas-blog/building-ai-agent-with-llama-3/">
+    <meta name="twitter:title" content="Using Llama 3 for Building AI Agents  | Ransaka's Blog">
+    <meta name="twitter:description" content="How to use llama 3 for building AI Agents">
 
-    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://ransaka.github.io/ransakas-blog/building-ai-agent-with-llama-3.md">
 
-    <link href="../../resources/css/retype.css?v=3.7.0.799578063788" rel="stylesheet">
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799578063788" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799578063788" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.7.0.799578063788" defer></script>
+    <link id="retype-favicon" rel="icon" href="../../favicon.ico" />
+    <link href="../../resources/css/retype.css?v=4.6.0.847022811092" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.847022811092" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.847022811092" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.6.0.847022811092" defer></script>
 </head>
 <body>
-    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
-        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
     
-        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
-            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
-                <!-- Mobile menu button skeleton -->
-                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
-                <div v-cloak id="docs-sidebar-toggle"></div>
-        
-                <!-- Logo -->
-                <div class="flex items-center justify-between h-full py-2 md:w-75">
-                    <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-xl">
-                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
-                                <img class="max-h-10 dark:hidden md:inline-block" src="../../images/blog/age_dist.png">
-                                <img class="max-h-10 hidden dark:inline-block" src="../../images/blog/age_dist.png">
-                            </span>
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Ransaka&#x27;s Blog</span>
-                        </a>
-                    </div>
-        
-                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://ransaka.github.io/" class="flex items-center leading-snug text-xl">
+                        <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                            <img class="max-h-10 md:inline-block" src="../../images/blog/age_dist.png" alt="" width="40" height="40">
+                        </span>
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Ransaka&#x27;s Blog</span>
+                    </a>
                 </div>
-        
-                <div class="flex justify-between md:grow">
-                    <!-- Top Nav -->
-                    <nav class="hidden md:flex">
-                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
-                            
-                        </ul>
-                    </nav>
-        
-                    <!-- Header Right Skeleton -->
-                    <div v-cloak class="flex justify-end grow skeleton">
-        
-                        <!-- Search input mock -->
-                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
-                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                            </div>
-                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
-                        </div>
-        
-                        <!-- Mobile search button -->
-                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                        </div>
-        
-                        <!-- Dark mode switch placeholder -->
-                        <div class="w-10 h-10 lg:ml-2"></div>
-        
-                        <!-- History button -->
-                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
-                        </div>
-                    </div>
-        
-                    <div v-cloak class="flex justify-end grow">
-                        <div id="docs-mobile-search-button"></div>
-                        <doc-search-desktop></doc-search-desktop>
-        
-                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
-                        <doc-history></doc-history>
-                    </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
                 </div>
             </div>
-        </header>
-    
-        <div class="container relative flex bg-white">
-            <!-- Sidebar Skeleton -->
-            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
-            
-                <div class="flex items-center h-16 px-6">
-                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
-                </div>
-            
-                <div class="pl-6 mt-1 mb-4">
-                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                </div>
-            
-                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
-                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+            <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                    <span class="text-xs whitespace-nowrap">Powered by</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
                         <span class="text-xs whitespace-nowrap">Powered by</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
                     </a>
                 </div>
-            </div>
-            
-            <!-- Sidebar component -->
-            <doc-sidebar v-cloak>
-                <template #sidebar-footer>
-                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
-            
-                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
-                            <span class="text-xs whitespace-nowrap">Powered by</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
-                        </a>
-                    </div>
-                </template>
-            </doc-sidebar>
-    
-            <div class="grow min-w-0 dark:bg-dark-850">
-                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
-                <div class="flex">
-                    <div class="min-w-0 p-4 grow md:px-16">
-                        <main class="relative pb-12 lg:pt-2">
-                            <div class="docs-markdown" id="docs-content">
-                                <!-- Rendered if sidebar right is enabled -->
-                                <div id="docs-sidebar-right-toggle"></div>
-                                <!-- Page content  -->
-<doc-anchor-target id="using-llama-3-for-building-ai-agents" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#using-llama-3-for-building-ai-agents">#</doc-anchor-trigger>
-        <span>Using Llama 3 for Building AI Agents</span>
-    </h1>
-</doc-anchor-target>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="using-llama-3-for-building-ai-agents">Using Llama 3 for Building AI Agents</h1>
+<div id="retype-page-description" class="description-display text-description font-description leading-description mb-description-margin-bottom mt-description-margin-top tracking-description text-transform-description">How to use llama 3 for building AI Agents</div>
 <blockquote>
 <p>Comprehensive guide to building AI Agents with Llama 3 function calling capabilities.</p>
 </blockquote>
-<p><figure class="content-center">
-    <img src="../../images/ai-agents/untitled-design-(3).png" alt="Image by Author via Canva">
+<figure class="content-center">
+    <img src="../../images/ai-agents/untitled-design-(3).png" alt="Image by Author via Canva" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1080" height="1080" />
     <figcaption class="caption">Image by Author via Canva</figcaption>
 </figure>
-</p>
-<doc-anchor-target id="introduction">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#introduction">#</doc-anchor-trigger>
-        <span>Introduction</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="introduction">Introduction</h2>
 <p>Imagine you want to buy something. You visit an e-commerce website and use the search option to find what you want. Maybe you have multiple items to buy, so the process isn’t very efficient. Now consider this scenario: open an application, describe what you want in plain English, and press enter. You don&#x27;t have to worry about searching and price comparisons because the application handles it automatically for you. Pretty cool, right? That’s exactly what we’ll build in this tutorial.</p>
 <p>Let’s look at some examples first.</p>
-<p><figure class="content-center">
-    <img src="../../images/ai-agents/example1.png" alt="User asking multiple products at once">
+<figure class="content-center">
+    <img src="../../images/ai-agents/example1.png" alt="User asking multiple products at once" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2616" height="916" />
     <figcaption class="caption">User asking multiple products at once</figcaption>
 </figure>
-</p>
-<p><figure class="content-center">
-    <img src="../../images/ai-agents/example2.png" alt="User is asking for the most cost-effective purchase he/she can make.">
+<figure class="content-center">
+    <img src="../../images/ai-agents/example2.png" alt="User is asking for the most cost-effective purchase he/she can make." class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="2616" height="916" />
     <figcaption class="caption">User is asking for the most cost-effective purchase he/she can make.</figcaption>
 </figure>
-</p>
 <p>Alright, let’s bring life to this application. We’re going to use Meta’s Llama 3 model with function calling capability. However, this can also be accomplished using the 3.1 models. According to <a href="https://ai.meta.com/blog/meta-llama-3-1/">Meta’s announcement</a>, the 3.1 models can use tools and functions more effectively.</p>
 <blockquote>
 <p>These are multilingual and have a significantly longer context length of 128K, state-of-the-art tool use, and overall stronger reasoning capabilities</p>
 </blockquote>
 <p>I will use Groq Cloud, specifically their model for this article. The initial workflow of this application should consist of an embedding model, a retriever, and two major tools for handling user purchase interests and cost-related concerns. In summary, we need something similar to what we&#x27;ve described in the diagram below.</p>
-<p><figure class="content-center">
-    <img src="../../images/ai-agents/architecture.webp" alt="Architecture Diagram">
+<figure class="content-center">
+    <img src="../../images/ai-agents/architecture.webp" alt="Architecture Diagram" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Architecture Diagram</figcaption>
 </figure>
-</p>
 <p>Now we have to use an LLM orchestration framework. For that, I am picking my all-time favourite, <a href="https://haystack.deepset.ai/">Haystack</a>.</p>
 <p>Okay, we got what we need. Let’s jump into the real work!</p>
-<doc-anchor-target id="loading-and-indexing-data">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#loading-and-indexing-data">#</doc-anchor-trigger>
-        <span>Loading and Indexing data</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="loading-and-indexing-data">Loading and Indexing data</h2>
 <p>Since we have an RAG pipeline, we should build a document indexing service as the first step. For this demo, I am going to use the in-memory vector database that Haystack offers. Please note that each document in our vector database contains,</p>
 <ul>
 <li>Content — Which we used to perform a similarity search</li>
@@ -215,8 +182,8 @@
 </ul>
 <p>When our RAG pipeline is invoked, the Content field is used for vector search. All other fields are included as metadata. It’s crucial to preserve this metadata as it’s essential for front-end presentation to the user.</p>
 <p>Let’s see how we can implement that.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">from haystack import Pipeline, Document
+<div id="loading-and-indexing-data-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">from haystack import Pipeline, Document
 from haystack.document_stores.in_memory import InMemoryDocumentStore
 from haystack.components.writers import DocumentWriter
 from haystack.components.embedders import SentenceTransformersDocumentEmbedder
@@ -258,20 +225,14 @@ indexing_pipeline.run({&quot;doc_embedder&quot;: {&quot;documents&quot;: documen
 <blockquote>
 <p>User Query: I want to buy a camping boot, an charcoal and google pixel 9 back cover. Let’s understand our ideal workflow for product identifier function.</p>
 </blockquote>
-<p><figure class="content-center">
-    <img src="../../images/ai-agents/flow1.webp" alt="Workflow of product_identifier_function">
+<figure class="content-center">
+    <img src="../../images/ai-agents/flow1.webp" alt="Workflow of product_identifier_function" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Workflow of product_identifier_function</figcaption>
 </figure>
-</p>
 <p>First, we need to create a tool for analyzing user queries and identifying user-interested products. We can build such a tool using code snippets below.</p>
-<doc-anchor-target id="building-user-query-analyzer">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#building-user-query-analyzer">#</doc-anchor-trigger>
-        <span>Building User Query Analyzer</span>
-    </h2>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">template = &quot;&quot;&quot;
+<h2 id="building-user-query-analyzer">Building User Query Analyzer</h2>
+<div id="building-user-query-analyzer-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">template = &quot;&quot;&quot;
 Understand the user query and list of products the user is interested in and return product names as list.
 You should always return a Python list. Do not return any explanation.
 
@@ -294,19 +255,13 @@ product_identifier.add_component(&quot;llm&quot;, generator())
 product_identifier.connect(&quot;prompt_builder&quot;, &quot;llm&quot;)</code></pre>
 </doc-codeblock></div>
 <p>Okay, now we have completed half of our first function, now it’s time to complete the function by adding the RAG pipeline.</p>
-<p><figure class="content-center">
-    <img src="../../images/ai-agents/flow2.webp" alt="Workflow of product_identifier_function">
+<figure class="content-center">
+    <img src="../../images/ai-agents/flow2.webp" alt="Workflow of product_identifier_function" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Workflow of product_identifier_function</figcaption>
 </figure>
-</p>
-<doc-anchor-target id="creating-rag-pipeline">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#creating-rag-pipeline">#</doc-anchor-trigger>
-        <span>Creating RAG Pipeline</span>
-    </h2>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">template = &quot;&quot;&quot;
+<h2 id="creating-rag-pipeline">Creating RAG Pipeline</h2>
+<div id="creating-rag-pipeline-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">template = &quot;&quot;&quot;
 Return product name, price, and url as a python dictionary. 
 You should always return a Python dictionary with keys price, name and url for single product.
 You should always return a Python list of dictionaries with keys price, name and url for multiple products.
@@ -346,14 +301,9 @@ rag_pipe.connect(&quot;prompt_builder&quot;, &quot;llm&quot;)</code></pre>
 <p>Let’s clarify the objectives of this function.</p>
 <p><strong>Objective 1</strong>: Identify all products the user is interested in and return them as a list.
 <strong>Objective 2</strong>: For each identified product, retrieve up to five products from the database along with their metadata.</p>
-<doc-anchor-target id="finalizing-product-identifier-function">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#finalizing-product-identifier-function">#</doc-anchor-trigger>
-        <span>Finalizing Product Identifier Function</span>
-    </h2>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">def product_identifier_func(query: str):
+<h2 id="finalizing-product-identifier-function">Finalizing Product Identifier Function</h2>
+<div id="finalizing-product-identifier-function-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">def product_identifier_func(query: str):
     product_understanding = product_identifier.run({&quot;prompt_builder&quot;: {&quot;question&quot;: query}})
 
     try:
@@ -372,14 +322,13 @@ rag_pipe.connect(&quot;prompt_builder&quot;, &quot;llm&quot;)</code></pre>
     
     return results</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="../../images/ai-agents/flow3.webp" alt="Workflow of product_identifier_function">
+<figure class="content-center">
+    <img src="../../images/ai-agents/flow3.webp" alt="Workflow of product_identifier_function" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">Workflow of product_identifier_function</figcaption>
 </figure>
-</p>
 <p>With that, we have completed our first tool for the agent. Let’s see whether it works as expected.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">query = &quot;I want crossbow and woodstock puzzle&quot;
+<div id="finalizing-product-identifier-function-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">query = &quot;I want crossbow and woodstock puzzle&quot;
 #execute function
 product_identifier_func(query)
 
@@ -392,8 +341,8 @@ product_identifier_func(query)
 #                       'url': 'https://www.amazon.com/Woodstock-Collage-500-pc-Puzzle/dp/B07MX21WWX'}}</code></pre>
 </doc-codeblock></div>
 <p>It worked!! However, it’s worth noting the return output schema. You can see the general schema below.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">{
+<div id="finalizing-product-identifier-function-code-3" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">{
     &quot;product_key&quot;: {
         &quot;name&quot;: &quot;string&quot;,
         &quot;price&quot;: &quot;float&quot;,
@@ -401,9 +350,9 @@ product_identifier_func(query)
     }
 }</code></pre>
 </doc-codeblock></div>
-<p>That’s exactly what we have advised the model to produce in the RAG pipeline. As a next step, let’s build an optional tool called <code v-pre>find_budget_friendly_option</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">def find_budget_friendly_option(selected_product_details):
+<p>That’s exactly what we have advised the model to produce in the RAG pipeline. As a next step, let’s build an optional tool called <code translate="no" v-pre>find_budget_friendly_option</code>.</p>
+<div id="finalizing-product-identifier-function-code-4" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">def find_budget_friendly_option(selected_product_details):
     budget_friendly_options = {}
     
     for category, items in selected_product_details.items():
@@ -417,14 +366,9 @@ product_identifier_func(query)
     return budget_friendly_options</code></pre>
 </doc-codeblock></div>
 <p>Okay, let&#x27;s focus on the most crucial aspect of this application, which is enabling the agent to use these functions as needed. As we previously talked about, this is achievable through a model-specific tool schema. Therefore, we need to locate the tool schema specific to the selected model. Fortunately, it&#x27;s mentioned in the model card <a href="https://huggingface.co/Groq/Llama-3-Groq-70B-Tool-Use">here</a>. We need to adjust that to fit our use case.</p>
-<doc-anchor-target id="finalizing-chat-template">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#finalizing-chat-template">#</doc-anchor-trigger>
-        <span>Finalizing Chat Template</span>
-    </h2>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">chat_template = '''&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
+<h2 id="finalizing-chat-template">Finalizing Chat Template</h2>
+<div id="finalizing-chat-template-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">chat_template = '''&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;
 
 You are a function calling AI model. You are provided with function signatures within &lt;tools&gt;&lt;/tools&gt; XML tags. You may call one or more functions to assist with the user query. Don't make assumptions about what values to plug into functions. For each function call return a json object with function name and arguments within &lt;tool_call&gt;&lt;/tool_call&gt; XML tags as follows:
 &lt;tool_call&gt;
@@ -475,8 +419,8 @@ I need to buy a crossbow&lt;|eot_id|&gt;&lt;|start_header_id|&gt;assistant&lt;|e
 '''</code></pre>
 </doc-codeblock></div>
 <p>Now there are only a few steps left. Before doing anything, let’s test our agent.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">## Testing agent
+<div id="finalizing-chat-template-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">## Testing agent
 messages = [
     ChatMessage.from_system(
         chat_template
@@ -512,15 +456,14 @@ pprint(response)
                                          'total_tokens': 631}})]}</code></pre>
 </doc-codeblock></div>
 <p>With that, we have completed about 90% of our work.</p>
-<p><figure class="content-center">
-    <img src="../../images/ai-agents/progress.webp" alt="You almost there">
+<figure class="content-center">
+    <img src="../../images/ai-agents/progress.webp" alt="You almost there" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption">You almost there</figcaption>
 </figure>
-</p>
 <hr>
-<p>One thing you probably noticed in the above response is that tool calls are enclosed using the XML tag <code v-pre>&lt;tool_call&gt;</code>. Therefore, we have to build some mechanism to extract the tool_call object.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">def extract_tool_calls(tool_calls_str):
+<p>One thing you probably noticed in the above response is that tool calls are enclosed using the XML tag <code translate="no" v-pre>&lt;tool_call&gt;</code>. Therefore, we have to build some mechanism to extract the tool_call object.</p>
+<div id="finalizing-chat-template-code-3" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">def extract_tool_calls(tool_calls_str):
     json_objects = re.findall(r'&lt;tool_call&gt;(.*?)&lt;/tool_call&gt;', tool_calls_str, re.DOTALL)
     
     result_list = [json.loads(obj) for obj in json_objects]
@@ -532,9 +475,9 @@ available_functions = {
     &quot;find_budget_friendly_option&quot;: find_budget_friendly_option
     }</code></pre>
 </doc-codeblock></div>
-<p>One thing you may have noticed in the above response is that the XML tag <code v-pre>&lt;tool_call&gt;</code> encloses tool calls. Thus, we need to develop a mechanism to extract the tool_call object.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">def extract_tool_calls(tool_calls_str):
+<p>One thing you may have noticed in the above response is that the XML tag <code translate="no" v-pre>&lt;tool_call&gt;</code> encloses tool calls. Thus, we need to develop a mechanism to extract the tool_call object.</p>
+<div id="finalizing-chat-template-code-4" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">def extract_tool_calls(tool_calls_str):
     json_objects = re.findall(r'&lt;tool_call&gt;(.*?)&lt;/tool_call&gt;', tool_calls_str, re.DOTALL)
     
     result_list = [json.loads(obj) for obj in json_objects]
@@ -547,8 +490,8 @@ available_functions = {
     }</code></pre>
 </doc-codeblock></div>
 <p>With this step completed, we can directly access the agent’s response when it calls a tool. Now the only thing pending is to get the tool call object and execute the function accordingly. Let’s complete that piece too.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">messages.append(ChatMessage.from_user(message))
+<div id="finalizing-chat-template-code-5" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">messages.append(ChatMessage.from_user(message))
 response = chat_generator.run(messages=messages)
 
 if response and &quot;&lt;tool_call&gt;&quot; in response[&quot;replies&quot;][0].content:
@@ -567,8 +510,8 @@ if response and &quot;&lt;tool_call&gt;&quot; in response[&quot;replies&quot;][0
         response = chat_generator.run(messages=messages)</code></pre>
 </doc-codeblock></div>
 <p>Now it’s time to join each component together and build a proper chat application. I am going to use Gradio for that purpose.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-python"><code v-pre class="language-python">import gradio as gr
+<div id="finalizing-chat-template-code-6" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-python"><code v-pre class="language-python">import gradio as gr
 
 messages = [ChatMessage.from_system(chat_template)]
 chat_generator = get_chat_generator()
@@ -622,92 +565,82 @@ demo.launch()</code></pre>
 </doc-codeblock></div>
 <p>That’s it! We have built the Llama 3-based AI Agent <span class="docs-emoji">&#x1F916;</span> with function calling capability. You can access the full code from this <a href="https://github.com/Ransaka/ai-agents-with-llama3">GitHub repo</a>. Thanks for reading.</p>
 <p>Access to the dataset used in this article is available through this <a href="https://www.kaggle.com/datasets/promptcloud/amazon-product-dataset-2020">Kaggle link</a> (Under CC0: Public Domain).</p>
-<doc-anchor-target id="conclusion">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#conclusion">#</doc-anchor-trigger>
-        <span>Conclusion</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="conclusion">Conclusion</h2>
 <p>When constructing an AI agent-based system, it&#x27;s important to consider the time required to complete a task and the number of API calls (tokens) used for each task. One of the major challenges is reducing hallucination in the system, which is an active area of research. Therefore, there are no set rules for building LLMs and agent systems. It&#x27;s necessary to work patiently and strategically to ensure the AI agent, the LLM, is functioning correctly.</p>
 <p><em>All images, unless otherwise noted, are by the author.</em></p>
-<doc-anchor-target id="reference">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#reference">#</doc-anchor-trigger>
-        <span>Reference:</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="reference">Reference:</h2>
 <ul>
 <li><a href="https://ai.meta.com/blog/meta-llama-3-1/?source=post_page-----7e74f79d1ccc--------------------------------">Introducing Llama 3.1: Our most capable models to date</a></li>
-<li><a href="https://huggingface.co/Groq/Llama-3-Groq-70B-Tool-Use">Groq&#x27;s <code v-pre>Llama-3-Groq-70B-Tool-Use</code> model</a></li>
+<li><a href="https://huggingface.co/Groq/Llama-3-Groq-70B-Tool-Use">Groq&#x27;s <code translate="no" v-pre>Llama-3-Groq-70B-Tool-Use</code> model</a></li>
 <li><a href="https://medium.com/p/7e74f79d1ccc#:%7E:text=https%3A//docs.together.ai/docs/llama%2D3%2Dfunction%2Dcalling">Llama 3 function calling</a></li>
 </ul>
 <p><em>This article was originally published on <a href="https://medium.com/towards-data-science/using-llama-3-for-building-ai-agents-7e74f79d1ccc">Medium</a>.</em></p>
 
-                                
-                                <!-- Required only on API pages -->
-                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
-                            </div>
-                            <footer class="clear-both">
-                            
-                                <nav class="flex mt-14">
-                                    <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../ransakas-blog/smote-with-caution/">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                                            <span>
-                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Use SMOTE with Caution</span>
-                                            </span>
-                                        </a>
-                                    </div>
-                            
-                                    <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../ransakas-blog/visualizing-cnn-features-with-activation-maximization/">
-                                            <span>
-                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Visualizing CNN Features with Activation Maximization</span>
-                                            </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                                        </a>
-                                    </div>
-                                </nav>
-                            </footer>
-                        </main>
                 
-                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
-                            <footer class="flex flex-wrap items-center justify-between">
-                                <div>
-                                    <ul class="flex flex-wrap items-center text-sm">
-                                    </ul>
-                                </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2025. All rights reserved.</p></div>
-                            </footer>
-                        </div>
-                    </div>
-                
-                    <!-- Rendered if sidebar right is enabled -->
-                    <!-- Sidebar right skeleton-->
-                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
-                        <div class="pl-5">
-                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
-                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
-                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
-                        </div>
-                    </div>
-                
-                    <!-- User should be able to hide sidebar right -->
-                    <doc-sidebar-right v-cloak></doc-sidebar-right>
-                </div>
-
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
             </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../ransakas-blog/smote-with-caution/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Use SMOTE with Caution</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../ransakas-blog/visualizing-cnn-features-with-activation-maximization/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Visualizing CNN Features with Activation Maximization</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"><p>© Copyright 2026. All rights reserved.</p></div>
+            </footer>
         </div>
-    
-        <doc-search-mobile></doc-search-mobile>
-        <doc-back-to-top></doc-back-to-top>
     </div>
 
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
 
-    <div id="docs-overlay-target"></div>
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Using Llama 3 for Building AI Agents", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Using Llama 3 for Building AI Agents", level: 2, icon: "file", hasPrism: true, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/ransakas-blog/building-ai-agent-with-llama-3.md" }</script>
 </body>
 </html>
